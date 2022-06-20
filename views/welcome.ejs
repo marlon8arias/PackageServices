@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Services Chiquimulilla</title>
+    <link rel="stylesheet" href="/welcome.css">
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>  
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><font style="vertical-align: inherit"
+              ><font style="vertical-align: inherit"
+                >Menú</font
+              ></font
+            ></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Navegación de palanca"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  ><font style="vertical-align: inherit"
+                    ><font style="vertical-align: inherit">Inicio</font></font
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/services"
+                  ><font style="vertical-align: inherit"
+                    ><font style="vertical-align: inherit"
+                      >Servicios</font
+                    ></font
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/nosotros"
+                  ><font style="vertical-align: inherit"
+                    ><font style="vertical-align: inherit">Nosotros</font></font
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/monitoreo"
+                  ><font style="vertical-align: inherit"
+                    ><font style="vertical-align: inherit">Monitoreo</font></font
+                  ></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+     <div class="main">
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/images/LogoPS - IS.png" alt="" width="72" height="57">
+            <h1 class="display-5 fw-bold">Package Services</h1>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead mb-4">Programa creado a partir de Node Js y MySQL, se trata de un CRUD con una temática simple de mensajería de paquetes, con algunas funcionalidades extra como: validación de formularios mediante expresiones regulares, funciones automáticas de cálculo y consulta externa.</p>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="/create" type="button" class="btn btn-dark btn-lg px-4 gap-3">Registrar Orden</a>
+                <a href="/monitoreo" type="button" class="btn btn-outline-secondary btn-lg px-4">Buscar cliente por código</a>
+              </div>
+            </div>
+          </div>
+     </div>
+    <style>
+        .admin{
+            background-color: rgb(248, 175, 5);
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .card-header{
+            background-color:rgb(46, 50, 46) !important;
+            color: aliceblue;
+            font-family: Segoe Print;
+        }
+        img{
+          height:150px !important;
+          width: 150px !important;
+        }
+    </style>
+    <div class="container">
+        <div class="card admin">
+            <div class="card-header">
+              Bienvenido administrador
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">¿Quieres ver los registros más recientes?</h5>
+              <p class="card-text">Muchas cosas han pasado desde tu última sesión, verifica si todo está bien.</p>
+              <a href="/index" class="btn btn-dark">Verificar</a>
+            </div>
+          </div>
+    </div>
+
+<script src="/bootstrap.bundle.min.js"></script>      
+    </body>
+</html>

@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/style.css">
+</head>
+
+<style>
+    .container{
+        display: flex;
+    }
+    .card{
+        margin: 0 auto;
+        font-family: cursive;
+    }
+    .detalles{
+      text-align: center;
+    }
+    img{
+      height: 150px !important;
+      width: 150px !important;
+      margin: 0 auto;
+      border-radius: 50%;
+      margin-top: -2px;
+    }
+    .card{
+      background-color:rgb(46, 50, 46) !important;
+      color: aliceblue;
+    }
+    .list-group-item{
+      color: black !important;
+    }
+    body{
+      background-image: url('/images/git.jpg');
+      background-size: cover;
+    }
+</style>
+<body>
+<% if (user) { %>
+    <br>
+  <div class="container">
+        <div class="card" style="">
+            <img src="/images/LogoPS - IS.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= user.nombre %> <%= user.apellido %></h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Tus datos son los siguientes:</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Dirección: </b><%= user.direccion %></li>
+                <li class="list-group-item"><b>Descripción: </b><%= user.description %></li>
+                <li class="list-group-item"><b>Nivel de orden: </b><%= user.rol %></li>
+              </ul>
+              <p class="card-text">Otrós detalles importantes:</p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Peso: </b><%= user.peso %> Kg.</li>
+                <li class="list-group-item"><b>Costo: </b>Q. <%= user.costo_total %></li>
+              </ul>
+              <br>
+              <a href="/monitoreo" class="card-link">Salir</a>
+            </div>
+          </div>
+   
+    </div>
+  </div>
+  <% } %>
+  <script src="/bootstrap.min.css"></script>
+</body>
+</html>

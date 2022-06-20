@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"
+        ><font style="vertical-align: inherit"
+          ><font style="vertical-align: inherit"
+            >Menú</font
+          ></font
+        ></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Navegación de palanca"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/welcome"
+              ><font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Inicio</font></font
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/services"
+              ><font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit"
+                  >Servicios</font
+                ></font
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/nosotros"
+              ><font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Nosotros</font></font
+              ></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/monitoreo"
+              ><font style="vertical-align: inherit"
+                ><font style="vertical-align: inherit">Monitoreo</font></font
+              ></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<style>
+  .card-header{
+    background-color:rgb(46, 50, 46) !important;
+            color: aliceblue;
+  }
+  .costo_calculado{
+    text-align: center;
+    color: rgb(149, 16, 16);
+    width: 100%;
+    font-size: 25px;
+  }
+</style>
+  <div class="container mt-4">
+    <div class="card border-secondary">
+        <div class="card-header">Realizar orden</div>
+        <div class="card-body">
+            <form action="/save" id="formulario" method="POST">
+                <div class="mb-3">
+                    <label for="user" class="form-label">Nombre</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="nombre" name="nombre" 
+                    tabindex="1" 
+                    placeholder="Ej. Juan"
+                    required
+                    >
+                </div>
+                <div class="mb-3">
+                  <label for="apellido" class="form-label">Apellido</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="apellido" 
+                  name="apellido" 
+                  tabindex="1" 
+                  placeholder="Ej. Sanchez"
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="apellido" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" tabindex="1">
+            </div>
+                <div class="mb-3">
+                    <label for="user" class="form-label">Nivel de orden</label>
+                    <select id="rol" name="rol" class="form-select form-control">
+                        <option selected>Elija una opción del menu</option>
+                        <option value="Plata">Plata Q.25.00</option>
+                        <option value="Bronce">Bronce Q.50.00</option>
+                        <option value="Oro">Oro Q.75.00</option>
+                      </select>
+                </div>
+                <div class="mb-3">
+                  <label for="apellido" class="form-label">Descripción del paquete</label>
+                  <input type="text" class="form-control" id="description" name="description" tabindex="1">
+              </div>
+              <hr>
+                <div class="row">
+                  <div class="col">
+                    <div class="card">
+                      <div class="card-header">
+                        <p>Necesitamos de otros pequeños detalles.</p>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="peso">Peso del paquete en kilogrmos</label>
+                          <input id="peso" name="peso" onkeyup="calcular();" type="number" class="form-control" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card">
+                      <div class="card-header">
+                        <p>Costo calculado</p>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="costo">Peso * costo segun su plan</label>
+                          <div id="costo">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                <a href="/welcome" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+        </div>
+    </div>
+  </div>
+  
+  <script src="/bootstrap.min.css"></script>
+  <script>
+    let input = document.createElement("input");
+    input.setAttribute('type','number');
+    input.setAttribute('name','costo_total');
+    input.setAttribute('class', 'form-control');
+    input.setAttribute('disabled','disabled');
+
+    function calcular(){
+
+      let peso = document.getElementById('peso').value;
+      let rol = document.getElementById('rol').value;
+      let costo = document.getElementById('costo');
+
+      let resultado = 0;      
+
+      if(rol == 'Plata'){
+        resultado = peso * 25;
+        input.setAttribute('value', `${resultado}`);
+        costo.appendChild(input);
+      }
+      if(rol == 'Bronce'){
+        resultado = peso * 50;
+        input.setAttribute('value', `${resultado}`);
+        costo.appendChild(input);
+      }
+      if(rol == 'Oro'){
+        resultado = peso * 75;
+        input.setAttribute('value', `${resultado}`);
+        costo.appendChild(input);
+      }
+    }
+    
+  </script>
+  <script src="/validarFormulario.js"></script>
+  <script src="/sweetalert2.js"></script>
+  <script src="/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
